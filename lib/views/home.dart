@@ -32,9 +32,9 @@ class HomePage extends StatelessWidget {
             },
             backgroundColor: kGrey,
             selectedItemColor: kGreen,
-            unselectedItemColor: Colors.black,
-            selectedLabelStyle:TextStyle(color: Colors.black) ,
-            unselectedLabelStyle: TextStyle(color: Colors.black),
+            unselectedItemColor: kBlack,
+            selectedLabelStyle:const TextStyle(color: kBlack) ,
+            unselectedLabelStyle: const TextStyle(color: kBlack),
             items: [
               BottomNavigationBarItem(
                 icon: _buildIcon(Icons.home, provider.currentIndex == 0),
@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Icon(
         icon,
-        color: isSelected ? Colors.white : Colors.black,
+        color: isSelected ? kwhite : kBlack,
       ),
     );
   }

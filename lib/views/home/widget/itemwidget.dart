@@ -44,7 +44,7 @@ Widget buildItem(Product product) {
                 ),
                 child:  Padding(
                   padding: const EdgeInsets.all(4.0),
-                  child: Text('${product.discount} off',style: TextStyle(overflow: TextOverflow.ellipsis),),
+                  child: Text('${product.discount} off',style: const TextStyle(overflow: TextOverflow.ellipsis),),
                 ),
               ),
             ),
