@@ -1,4 +1,3 @@
-
 class Product {
   final String sku;
   final String productName;
@@ -27,6 +26,31 @@ class Product {
       actualPrice: json['actual_price'],
       offerPrice: json['offer_price'],
       discount: json['discount'],
+    );
+  }
+}
+
+class BestSellers {
+  final String type;
+  final String title;
+  final List<Product> contents;
+
+  BestSellers({
+    required this.type,
+    required this.title,
+    required this.contents,
+  });
+
+  factory BestSellers.fromJson(Map<String, dynamic> json) {
+    var contentsJson = json['contents'] as List;
+    List<Product> contentsList = contentsJson
+        .map((contentJson) => Product.fromJson(contentJson))
+        .toList();
+
+    return BestSellers(
+      type: json['type'],
+      title: json['title'],
+      contents: contentsList,
     );
   }
 }

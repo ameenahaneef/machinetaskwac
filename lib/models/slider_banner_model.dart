@@ -13,15 +13,14 @@ class BannerSlider {
 
   factory BannerSlider.fromJson(Map<String, dynamic> json) {
     return BannerSlider(
-      type: json['type'] as String,
-      title: json['title'] as String,
-      contents: (json['contents'] as List<dynamic>)
-          .map((item) => BannerContent.fromJson(item as Map<String, dynamic>))
+      type: json['type'] ?? '',
+      title: json['title'] ?? '',
+      contents: (json['contents'] as List)
+          .map((content) => BannerContent.fromJson(content))
           .toList(),
-      id: json['id'] as String,
+      id: json['id'],
     );
   }
-
 }
 
 class BannerContent {
@@ -35,11 +34,8 @@ class BannerContent {
 
   factory BannerContent.fromJson(Map<String, dynamic> json) {
     return BannerContent(
-      title: json['title']??'',
-      imageUrl: json['image_url']??'',
+      title: json['title'] ?? '',
+      imageUrl: json['image_url'] ?? '',
     );
   }
-
-  
 }
-

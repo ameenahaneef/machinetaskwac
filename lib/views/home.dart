@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:machinetask_wac/constants/colors.dart';
 import 'package:machinetask_wac/viewmodels/bottom_nav_provider.dart';
 import 'package:machinetask_wac/views/home/pages/home_content.dart';
 import 'package:provider/provider.dart';
@@ -8,8 +9,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _pages = [
-      const HomeContent(),
+    final List<Widget> pages = [
+       const HomeContent(),
       const Center(child: Text('Category')),
       const Center(child: Text('Cart')),
       const Center(child: Text('Offers')),
@@ -19,7 +20,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Consumer<BottomNavProvider>(
         builder: (context, provider, child) {
-          return _pages[provider.currentIndex];
+          return pages[provider.currentIndex];
         },
       ),
       bottomNavigationBar: Consumer<BottomNavProvider>(
@@ -29,9 +30,11 @@ class HomePage extends StatelessWidget {
             onTap: (index) {
               provider.updateIndex(index);
             },
-            backgroundColor: Colors.grey[800],
-            selectedItemColor: Colors.green,
+            backgroundColor: kGrey,
+            selectedItemColor: kGreen,
             unselectedItemColor: Colors.black,
+            selectedLabelStyle:TextStyle(color: Colors.black) ,
+            unselectedLabelStyle: TextStyle(color: Colors.black),
             items: [
               BottomNavigationBarItem(
                 icon: _buildIcon(Icons.home, provider.currentIndex == 0),
